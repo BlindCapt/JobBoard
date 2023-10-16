@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Offer;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -10,8 +11,12 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $listId = [];
+        foreach (Offer::all() as $offers) {
+            array_push($listId, [$offers->title, $offers->description]);
+        }
         return Inertia::render('Home', [
-            'name' => 'QSDFQSD',
+            'data' => $listId,
         ]);
     }
 
