@@ -8,24 +8,27 @@ use Inertia\Inertia;
 
 class HomeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         return Inertia::render('Home', [
             'name' => 'QSDFQSD',
         ]);
-
     }
 
-    public function OfferPage(){
+    public function OfferPage()
+    {
         return Inertia::render('Description'); //nom a changer.
     }
 
-    public function CompanyPage(){
+    public function CompanyPage()
+    {
         return Inertia::render('CompanyForm');
     }
 
 
-    public function savedescription(Request $request){
+    public function savedescription(Request $request)
+    {
 
         //dd($request);
 
@@ -36,10 +39,8 @@ class HomeController extends Controller
 
         return "Titre : " . $request['name'] . ",\n Description : " . $request['text'];
     }
-    public function jobs(){
+    public function jobs()
+    {
         return Inertia::render('Jobs');
-
-    
     }
-
 }
