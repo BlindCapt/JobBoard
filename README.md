@@ -20,10 +20,7 @@ npm run dev
 /// lunch app
 php artisan serve
 
-///create all table
-php artisan migrate
-
-///create seed element (admin user)
-php artisan db:seed
+///create all table + add seed element
+php artisan migrate --seed
 
 test commit matthieu
