@@ -22,5 +22,3 @@ php artisan serve
 
 ///create all table + add seed element
 php artisan migrate --seed
-
-test commit matthieu
