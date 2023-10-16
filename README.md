@@ -13,3 +13,5 @@ php artisan serve lunch app
 
 php artisan migrate create all table
 php artisan db:seed create seed element (admin user)
+
+test commit dev
