@@ -5,9 +5,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-use App\Http\Controllers\HomeController; 
-use App\Http\Controllers\CrudController; 
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CrudController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,17 +39,16 @@ Route::middleware('auth')->group(function () {
 });
 
 //ROUTES PERSO :
-Route::get('/Jobs',[HomeController::class,'Jobs']);
+Route::get('/Jobs', [HomeController::class, 'Jobs']);
 Route::get('/Home', [HomeController::class, 'index']);
 
 //ROUTES CREATE DATA :
-Route::post('/setOffer', [CrudController::class, 'setOffer']) -> name('setOffer');
-Route::post('/setCompany', [CrudController::class, 'setCompany']) -> name('setCompany');
+Route::post('/setOffer', [CrudController::class, 'setOffer'])->name('setOffer');
+Route::post('/setCompany', [CrudController::class, 'setCompany'])->name('setCompany');
 
 //ROUTES GET DATA :
 Route::get('/setCompany', [HomeController::class, 'CompanyPage']);
 Route::get('/setOffer', [HomeController::class, 'OfferPage']);
 Route::get('/offer', [CrudController::class, 'getOfferID']);
 
-require __DIR__.'/auth.php';
-
+require __DIR__ . '/auth.php';

@@ -3,29 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Offer;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class HomeController extends Controller
 {
-    public function index(){
-
+    public function index()
+    {
+        $listId = [];
+        foreach (Offer::all() as $offers) {
+            array_push($listId, [$offers->title, $offers->description]);
+        }
         return Inertia::render('Home', [
-            'name' => 'QSDFQSD',
+            'data' => $listId,
         ]);
-
     }
 
-    public function OfferPage(){
+    public function OfferPage()
+    {
         return Inertia::render('Description'); //nom a changer.
     }
 
-    public function CompanyPage(){
+    public function CompanyPage()
+    {
         return Inertia::render('CompanyForm');
     }
 
 
-    public function savedescription(Request $request){
+    public function savedescription(Request $request)
+    {
 
         //dd($request);
 
@@ -36,10 +43,8 @@ class HomeController extends Controller
 
         return "Titre : " . $request['name'] . ",\n Description : " . $request['text'];
     }
-    public function jobs(){
+    public function jobs()
+    {
         return Inertia::render('Jobs');
-
-    
     }
-
 }
