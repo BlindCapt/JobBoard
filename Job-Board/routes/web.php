@@ -40,7 +40,9 @@ Route::middleware('auth')->group(function () {
 
 //ROUTES PERSO :
 Route::get('/Jobs', [HomeController::class, 'Jobs']);
-Route::get('/Home', [HomeController::class, 'index']);
+Route::get('/Home', [HomeController::class, 'index'])->name('home');
+Route::get('/test', [HomeController::class, 'Create']);
+
 
 //ROUTES CREATE DATA :
 Route::post('/setOffer', [CrudController::class, 'setOffer'])->name('setOffer');

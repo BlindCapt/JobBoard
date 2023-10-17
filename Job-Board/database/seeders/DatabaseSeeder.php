@@ -3,11 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Companies;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Company;
 use App\Models\Offer;
 
 class DatabaseSeeder extends Seeder
@@ -30,7 +31,7 @@ class DatabaseSeeder extends Seeder
         //]);
         // DB::table('users')->delete();
 
-        Company::factory(10)->create();
+        Companies::factory(10)->create();
 
         Offer::factory(15)->create();
     }

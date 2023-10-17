@@ -1,17 +1,48 @@
-import ApplicationLogo from '@/Components/ApplicationLogo';
-import { Link } from '@inertiajs/react';
+import ApplicationLogo from "@/Components/ApplicationLogo";
+import { Link } from "@inertiajs/react";
 
-export default function Guest({ children }) {
+export default function Guest({ title, children }) {
     return (
-        <div className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <Link href="/">
-                    <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
+        <div className="flex bg-background text-white">
+            <aside className=" bg-asideGrey w-1/5 min-h-screen rounded-r-lg text-center">
+                <div className="pt-5 pb-20">
+                    <div className="">
+                        <img src="logo.png" className="w-36" alt="" />
+                    </div>
+                </div>
+                <Link className=" bg-gray-800 hover:bg-green-400 p-3 px-8 rounded-full">
+                    Offres d'emploi
                 </Link>
-            </div>
+            </aside>
+            <div className="flex-col w-full">
+                <header className="container mx-auto px-5 py-10 h-36">
+                    <div className="grid grid-cols-4">
+                        <div className=" text-4xl uppercase font-semibold col-span-3">
+                            {title}
+                        </div>
 
-            <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                {children}
+                        <div className="text-right">
+                            <Link
+                                href={route("login")}
+                                className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                            >
+                                Log in
+                            </Link>
+
+                            <Link
+                                href={route("register")}
+                                className="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                            >
+                                Register
+                            </Link>
+                        </div>
+                    </div>
+                </header>
+                <body className="grid grid-cols-6">
+                    <div className="col-span-5 rounded-lg bg-asideGrey ml-8 p-4">
+                        {children}
+                    </div>
+                </body>
             </div>
         </div>
     );

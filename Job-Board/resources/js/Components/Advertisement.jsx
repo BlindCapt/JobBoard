@@ -7,7 +7,7 @@ const Advertisement = (props) => {
                 <div className="text-2xl">{props.titre}</div>
                 <div className="mt-4">{props.description}</div>
                 <a href="#" className="mt-4">
-                    Learn more
+                    Learn more test
                 </a>
             </div>
         </div>
