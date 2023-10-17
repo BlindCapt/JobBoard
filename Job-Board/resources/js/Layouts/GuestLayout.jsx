@@ -3,14 +3,46 @@ import { Link } from "@inertiajs/react";
 
 export default function Guest({ title, children }) {
     return (
-        <div className="flex">
-            <aside className="bg-slate-600 w-1/5 min-h-screen">layout</aside>
+        <div className="flex bg-background text-white">
+            <aside className=" bg-asideGrey w-1/5 min-h-screen rounded-r-lg text-center">
+                <div className="pt-5 pb-20">
+                    <div className="">
+                        <img src="logo.png" className="w-36" alt="" />
+                    </div>
+                </div>
+                <Link className=" bg-gray-800 hover:bg-green-400 p-3 px-8 rounded-full">
+                    Offres d'emploi
+                </Link>
+            </aside>
             <div className="flex-col w-full">
-                <header className=" h-36 bg-blue-800">
-                    <div>{title}</div>
-                    <div className="text-right pt-10">login</div>
+                <header className="container mx-auto px-5 py-10 h-36">
+                    <div className="grid grid-cols-4">
+                        <div className=" text-4xl uppercase font-semibold col-span-3">
+                            {title}
+                        </div>
+
+                        <div className="text-right">
+                            <Link
+                                href={route("login")}
+                                className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                            >
+                                Log in
+                            </Link>
+
+                            <Link
+                                href={route("register")}
+                                className="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                            >
+                                Register
+                            </Link>
+                        </div>
+                    </div>
                 </header>
-                <div className=" ">{children}</div>
+                <body className="grid grid-cols-6">
+                    <div className="col-span-5 rounded-lg bg-asideGrey ml-8 p-4">
+                        {children}
+                    </div>
+                </body>
             </div>
         </div>
     );
