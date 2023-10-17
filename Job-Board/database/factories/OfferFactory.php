@@ -31,7 +31,6 @@ class OfferFactory extends Factory
             'company_id' => $arr[0],
             'description' => fake()->text(),
             'title' => Str::random(10),
-            'description' => fake()->text(),
         ];
     }
 }

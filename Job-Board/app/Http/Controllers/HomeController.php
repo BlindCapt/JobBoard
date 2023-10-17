@@ -36,7 +36,7 @@ class HomeController extends Controller
 
         //dd($request);
 
-        $post = new \App\Models\offer();
+        $post = new \App\Models\Offer();
         $post->title = $request['name'];
         $post->description = $request['text'];
         $post->save();
@@ -46,5 +46,10 @@ class HomeController extends Controller
     public function jobs()
     {
         return Inertia::render('Jobs');
+    }
+
+    public function create()
+    {
+        return Inertia::render('test/Create');
     }
 }
