@@ -7,6 +7,7 @@ use Inertia\Inertia;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CrudController;
+use App\Models\Offer;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,8 +41,19 @@ Route::middleware('auth')->group(function () {
 
 //ROUTES PERSO :
 Route::get('/Jobs', [HomeController::class, 'Jobs']);
-Route::get('/Home', [HomeController::class, 'index'])->name('home');
+Route::get('/Home', function () {
+    $listId = [];
+    foreach (Offer::all() as $offers) {
+        array_push($listId, [$offers->title, $offers->description]);
+    }
+    return Inertia::render('ListOffre', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'data' => $listId,
+    ]);
+});
 Route::get('/test', [HomeController::class, 'Create']);
+
 
 
 //ROUTES CREATE DATA :

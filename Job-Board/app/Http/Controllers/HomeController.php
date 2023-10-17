@@ -15,7 +15,7 @@ class HomeController extends Controller
         foreach (Offer::all() as $offers) {
             array_push($listId, [$offers->title, $offers->description]);
         }
-        return Inertia::render('Home', [
+        return Inertia::render('ListOffre', [
             'data' => $listId,
         ]);
     }
@@ -51,5 +51,10 @@ class HomeController extends Controller
     public function create()
     {
         return Inertia::render('test/Create');
+    }
+
+    public function offer()
+    {
+        return Inertia::render('Offre/Offers');
     }
 }
