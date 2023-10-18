@@ -6,9 +6,9 @@ const Advertisement = (props) => {
             <div className="grid grid-cols-7">
                 <div className="text-2xl col-span-6">{props.titre}</div>
                 <div className="mt-4 col-span-6">{props.description}</div>
-                <a href="#" className="bg-green-400 rounded-xl p-3 h-14 w-28">
-                    Learn more
-                </a>
+                <div className="bg-green-400 rounded-xl h-14 w-28 pt-4 text-center">
+                    <a href="#">Learn more</a>
+                </div>
             </div>
         </div>
     );

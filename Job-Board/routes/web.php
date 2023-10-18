@@ -51,7 +51,7 @@ Route::get('/Home', function () {
         'canRegister' => Route::has('register'),
         'data' => $listId,
     ]);
-});
+})->name('home');
 Route::get('/test', [HomeController::class, 'Create']);
 
 
