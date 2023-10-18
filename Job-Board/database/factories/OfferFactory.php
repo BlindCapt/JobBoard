@@ -22,15 +22,11 @@ class OfferFactory extends Factory
         foreach (Companies::all() as $company) {
             array_push($arr, $company->id);
         }
-        echo "[";
-        foreach ($arr as $item) {
-            echo "$item, ";
-        }
-        echo "]" . var_dump($arr[0]) . "\n";
         return [
             'company_id' => $arr[0],
             'description' => fake()->text(),
             'title' => Str::random(10),
+            'full_description' => fake()->realTextBetween(600, 1200),
         ];
     }
 }

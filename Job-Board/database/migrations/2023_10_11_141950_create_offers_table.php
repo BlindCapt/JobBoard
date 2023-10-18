@@ -21,6 +21,7 @@ return new class extends Migration
             //Data
             $table->string('title');
             $table->string('description');
+            $table->text('full_description');
             $table->timestamps();
         });
     }
