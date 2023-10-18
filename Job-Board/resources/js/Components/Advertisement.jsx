@@ -9,7 +9,7 @@ const Advertisement = (props) => {
                 <div className="mt-4 col-span-6">{props.description}</div>
                 <div className="bg-green-400 rounded-xl h-14 w-28 pt-4 text-center">
                     <Link href={`http://127.0.0.1:8000/offer?id=${props.id}`}>
-                        Learn more {props.id}
+                        Learn more
                     </Link>
                 </div>
             </div>
