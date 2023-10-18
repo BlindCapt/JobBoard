@@ -46,14 +46,13 @@ Route::get('/Home', function () {
     foreach (Offer::all() as $offers) {
         array_push($listId, [$offers->title, $offers->description]);
     }
-    return Inertia::render('ListOffre', [
+    return Inertia::render('Offre/ListOffre', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'data' => $listId,
     ]);
 })->name('home');
 Route::get('/test', [HomeController::class, 'Create']);
-
 
 
 //ROUTES CREATE DATA :
@@ -63,6 +62,6 @@ Route::post('/setCompany', [CrudController::class, 'setCompany'])->name('setComp
 //ROUTES GET DATA :
 Route::get('/setCompany', [HomeController::class, 'CompanyPage']);
 Route::get('/setOffer', [HomeController::class, 'OfferPage']);
-Route::get('/offer', [CrudController::class, 'getOfferID']);
+Route::get('/offer', [CrudController::class, 'getOfferID'])->name('offre');
 
 require __DIR__ . '/auth.php';

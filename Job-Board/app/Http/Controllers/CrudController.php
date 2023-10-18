@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 use PhpParser\Node\Stmt\TryCatch;
 
 use function Laravel\Prompts\error;
@@ -33,8 +34,15 @@ class CrudController extends Controller
 
         $id = $request['id'];
 
-        $post = \App\Models\offer::findOrFail($id);
-        return $post;
+        $post = \App\Models\Offer::findOrFail($id);
+
+        return Inertia::render('Offre/FullOffre', [
+            'id' => $post->id,
+            'company_id' => $post->company_id,
+            'title' => $post->title,
+            'description' => $post->description,
+            'full_description' => $post->full_description
+        ]);
     }
 
 
@@ -43,7 +51,7 @@ class CrudController extends Controller
     public function SetCompany(Request $request)
     {
 
-        $post = new \App\Models\company();
+        $post = new \App\Models\Companies();
 
         $post->name = $request['name'];
 
