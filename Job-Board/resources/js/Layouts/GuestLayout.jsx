@@ -10,7 +10,10 @@ export default function Guest({ title, children }) {
                         <img src="logo.png" className="w-36" alt="" />
                     </div>
                 </div>
-                <Link className=" bg-gray-800 hover:bg-green-400 p-3 px-8 rounded-full">
+                <Link
+                    className=" bg-gray-800 hover:bg-green-400 p-3 px-8 rounded-full"
+                    href={route("home")}
+                >
                     Offres d'emploi
                 </Link>
             </aside>
