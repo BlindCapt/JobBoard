@@ -8,6 +8,8 @@ use Inertia\Inertia;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CrudController;
 use App\Models\Offer;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,19 +43,20 @@ Route::middleware('auth')->group(function () {
 
 //ROUTES PERSO :
 Route::get('/Jobs', [HomeController::class, 'Jobs']);
+
 Route::get('/Home', function () {
     $listId = [];
     foreach (Offer::all() as $offers) {
-        array_push($listId, [$offers->title, $offers->description]);
+        array_push($listId, [$offers->title, $offers->description, $offers->id]);
     }
-    return Inertia::render('ListOffre', [
+    return Inertia::render('Offre/ListOffre', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'data' => $listId,
     ]);
 })->name('home');
-Route::get('/test', [HomeController::class, 'Create']);
 
+Route::get('/test', [HomeController::class, 'Create']);
 
 
 //ROUTES CREATE DATA :
@@ -63,6 +66,19 @@ Route::post('/setCompany', [CrudController::class, 'setCompany'])->name('setComp
 //ROUTES GET DATA :
 Route::get('/setCompany', [HomeController::class, 'CompanyPage']);
 Route::get('/setOffer', [HomeController::class, 'OfferPage']);
-Route::get('/offer', [CrudController::class, 'getOfferID']);
+Route::get('/offer', function (Request $request) {
+    $id = $request['id'];
+
+    $post = \App\Models\Offer::findOrFail($id);
+    return Inertia::render('Offre/FullOffre', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'id' => $post->id,
+        'company_id' => $post->company_id,
+        'title' => $post->title,
+        'description' => $post->description,
+        'full_description' => $post->full_description
+    ]);
+})->name('offre');
 
 require __DIR__ . '/auth.php';

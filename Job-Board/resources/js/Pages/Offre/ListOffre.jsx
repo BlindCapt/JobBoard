@@ -1,5 +1,5 @@
 import Advertisement from "@/Components/Advertisement";
-import CheckLayout from "../Layouts/CheckLayout";
+import CheckLayout from "../../Layouts/CheckLayout";
 import { useState } from "react";
 
 const index = [5, 10, 15];
@@ -8,7 +8,13 @@ export default function ListOffre({ auth, data }) {
 
     let Arr = [];
     for (let i = 0; i < NbAd; i++) {
-        Arr.push(<Advertisement titre={data[i][0]} description={data[i][1]} />);
+        Arr.push(
+            <Advertisement
+                titre={data[i][0]}
+                description={data[i][1]}
+                id={data[i][2]}
+            />
+        );
     }
 
     return (

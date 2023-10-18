@@ -13,9 +13,9 @@ class HomeController extends Controller
     {
         $listId = [];
         foreach (Offer::all() as $offers) {
-            array_push($listId, [$offers->title, $offers->description]);
+            array_push($listId, [$offers->title, $offers->description, $offers->id_offers]);
         }
-        return Inertia::render('ListOffre', [
+        return Inertia::render('Offre/ListOffre', [
             'data' => $listId,
         ]);
     }

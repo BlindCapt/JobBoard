@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Companies;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 /**
@@ -22,15 +23,11 @@ class OfferFactory extends Factory
         foreach (Companies::all() as $company) {
             array_push($arr, $company->id);
         }
-        echo "[";
-        foreach ($arr as $item) {
-            echo "$item, ";
-        }
-        echo "]" . var_dump($arr[0]) . "\n";
         return [
-            'company_id' => $arr[0],
+            'company_id' => $arr[random_int(0, count($arr) - 2)],
             'description' => fake()->text(),
             'title' => Str::random(10),
+            'full_description' => fake()->realTextBetween(600, 1200),
         ];
     }
 }

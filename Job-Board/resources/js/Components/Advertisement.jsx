@@ -1,3 +1,4 @@
+import { Link } from "@inertiajs/react";
 import React from "react";
 
 const Advertisement = (props) => {
@@ -7,7 +8,9 @@ const Advertisement = (props) => {
                 <div className="text-2xl col-span-6">{props.titre}</div>
                 <div className="mt-4 col-span-6">{props.description}</div>
                 <div className="bg-green-400 rounded-xl h-14 w-28 pt-4 text-center">
-                    <a href="#">Learn more</a>
+                    <Link href={`http://127.0.0.1:8000/offer?id=${props.id}`}>
+                        Learn more
+                    </Link>
                 </div>
             </div>
         </div>
