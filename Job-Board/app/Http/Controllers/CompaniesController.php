@@ -49,15 +49,16 @@ class CompaniesController extends Controller
     /**
      * Update the companie's profile information.
      */
-    public function update(CompaniesUpdateRequest $request): RedirectResponse
+    public function update(Request $request): RedirectResponse
     {
         $companie = Companies::find($request['id']);
 
-        $request->companies()->fill($request->validated());
+        $companie->name = $request['name'];
+        $companie->description = $request['description'];
 
-        $request->companies()->save();
+        $companie->save();
 
-        return Redirect::route('profile.edit');
+        return Redirect::to('/ManageCompanies');
     }
 
     /**
