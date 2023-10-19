@@ -42,9 +42,7 @@ export default function Guest({ title, children }) {
                     </div>
                 </header>
                 <body className="grid grid-cols-6">
-                    <div className="col-span-5 rounded-lg bg-asideGrey ml-8 p-4">
-                        {children}
-                    </div>
+                    <div className="col-span-5">{children}</div>
                 </body>
             </div>
         </div>
