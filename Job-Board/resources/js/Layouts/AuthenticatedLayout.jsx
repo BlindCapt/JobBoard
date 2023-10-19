@@ -18,7 +18,7 @@ export default function Authenticated({ user, header, children }) {
                     </div>
                 </div>
                 <Link
-                    className=" bg-gray-800 hover:bg-green-400 p-3 px-8 rounded-full"
+                    className=" bg-gray-800 hover:bg-green-400 p-3 px-8 rounded-2xl "
                     href={route("home")}
                 >
                     Offres d'emploi

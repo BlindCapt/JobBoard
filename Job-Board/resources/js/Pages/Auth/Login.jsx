@@ -38,10 +38,14 @@ export default function Login({ status, canResetPassword }) {
             <div className="py-12 px-10">
                 <form
                     onSubmit={submit}
-                    className=" bg-asideGrey mb-5 p-4 roundedmd"
+                    className=" bg-asideGrey mb-5 p-4 rounded-md"
                 >
                     <div>
-                        <InputLabel htmlFor="email" value="Email" />
+                        <InputLabel
+                            htmlFor="email"
+                            value="Email"
+                            className="text-white"
+                        />
 
                         <TextInput
                             id="email"
@@ -58,7 +62,11 @@ export default function Login({ status, canResetPassword }) {
                     </div>
 
                     <div className="mt-4">
-                        <InputLabel htmlFor="password" value="Password" />
+                        <InputLabel
+                            htmlFor="password"
+                            value="Password"
+                            className="text-white"
+                        />
 
                         <TextInput
                             id="password"
@@ -87,7 +95,7 @@ export default function Login({ status, canResetPassword }) {
                                     setData("remember", e.target.checked)
                                 }
                             />
-                            <span className="ml-2 text-sm text-gray-600">
+                            <span className="ml-2 text-sm text-gray-400">
                                 Remember me
                             </span>
                         </label>
