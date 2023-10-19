@@ -16,7 +16,7 @@ class CompaniesController extends Controller
     /**
      * Create a new line in the companie table.
      */
-    public function create(Request $request)
+    public function create(Request $request): RedirectResponse
     {
         /* Gestion name deja present dans la table  */
         foreach (Companies::all() as $companie) {
@@ -33,7 +33,17 @@ class CompaniesController extends Controller
         $post->save();
 
         //A modifier :
-        return "Titre : " . $request['name'] . ",\n Description : " . $request['description'] . "\nLigne créée avec succee.";
+        return Redirect::to('/ManageCompanies');
+    }
+
+    public function read()
+    {
+        $ListCompanies = [];
+        foreach (Companies::all() as $companie) {
+            array_push($ListCompanies, [$companie->id, $companie->name, $companie->description]);
+        }
+
+        return Inertia::render("Admin/ManageCompanies", ['data' => $ListCompanies]);
     }
 
     /**
@@ -41,6 +51,8 @@ class CompaniesController extends Controller
      */
     public function update(CompaniesUpdateRequest $request): RedirectResponse
     {
+        $companie = Companies::find($request['id']);
+
         $request->companies()->fill($request->validated());
 
         $request->companies()->save();
@@ -53,9 +65,9 @@ class CompaniesController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        $companie = $request->companies();
+        $companie = Companies::find($request['id']);
         $companie->delete();
 
-        return Redirect::to(url()->current());
+        return Redirect::to('/ManageCompanies');
     }
 }
