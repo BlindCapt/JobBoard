@@ -15,17 +15,19 @@ const FullOffre = (props) => {
 
     return (
         <CheckLayout auth={props.auth} title={props.title}>
-            <div>
-                <div>Companie ID : {props.company_id}</div>
-                <div>Description complete : {props.full_description} </div>
+            <div className="py-12 px-10">
+                <div className=" bg-asideGrey rounded-md mb-5 p-4">
+                    <div>Companie ID : {props.company_id}</div>
+                    <div>Description complete : {props.full_description} </div>
+                </div>
+                <PrimaryButton
+                    className=" float-right"
+                    onClick={() => SetFormVisibility(!formVisibility)}
+                >
+                    Postuler
+                </PrimaryButton>
+                {form}
             </div>
-            <PrimaryButton
-                className=" float-right"
-                onClick={() => SetFormVisibility(!formVisibility)}
-            >
-                Postuler
-            </PrimaryButton>
-            {form}
         </CheckLayout>
     );
 };

@@ -19,8 +19,8 @@ export default function ListOffre({ auth, data }) {
 
     return (
         <CheckLayout auth={auth} title={"offres d'emploi"}>
-            <div className="container mx-auto">
-                <div className="flex gap-5 mb-5">
+            <div className="container py-12 px-10">
+                <div className="flex gap-5 mb-5 p-4 rounded-md bg-asideGrey ">
                     <div className="w-2/3 bg-white rounded-lg p-2  text-black">
                         SERACH BAR
                     </div>
@@ -39,7 +39,7 @@ export default function ListOffre({ auth, data }) {
                         ))}
                     </select>
                 </div>
-                <div>{Arr}</div>
+                <div className="p-4 bg-asideGrey rounded-md">{Arr}</div>
             </div>
         </CheckLayout>
     );

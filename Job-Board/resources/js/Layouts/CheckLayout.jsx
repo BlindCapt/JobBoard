@@ -7,7 +7,9 @@ export default function Check({ auth, title, children }) {
     return (
         <div>
             {auth.user ? (
-                <AuthenticatedLayout>{children}</AuthenticatedLayout>
+                <AuthenticatedLayout user={auth.user} header={title}>
+                    {children}
+                </AuthenticatedLayout>
             ) : (
                 <GuestLayout title={title}>{children}</GuestLayout>
             )}
