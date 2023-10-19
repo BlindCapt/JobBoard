@@ -1,6 +1,6 @@
 import React from "react";
 
-const FormJob = () => {
+const FormJobNotAuth = () => {
     return (
         <form>
             <div className="space-y-12 pt-12">
@@ -266,11 +266,11 @@ const FormJob = () => {
                     type="submit"
                     className="rounded-lg bg-green-400 px-12 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-300 "
                 >
-                    Save
+                    APPLY
                 </button>
             </div>
         </form>
     );
 };
 
-export default FormJob;
+export default FormJobNotAuth;

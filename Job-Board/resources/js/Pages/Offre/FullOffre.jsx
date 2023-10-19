@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import CheckLayout from "../../Layouts/CheckLayout";
 import PrimaryButton from "../../../../vendor/laravel/breeze/stubs/inertia-react/resources/js/Components/PrimaryButton";
-import FormJob from "@/Components/FormJob";
+import FormJobNotAuth from "@/Components/FormJobNotAuth";
 
 const FullOffre = (props) => {
-    let [formVisibility, SetFormVisibility] = useState(true);
+    let [formVisibility, SetFormVisibility] = useState(false);
 
     let form;
     if (formVisibility) {
-        form = <FormJob></FormJob>;
+        form = <FormJobNotAuth></FormJobNotAuth>;
     } else {
         form = null;
     }
