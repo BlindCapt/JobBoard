@@ -39,7 +39,7 @@ export default function ListOffre({ auth, data }) {
                         ))}
                     </select>
                 </div>
-                <div>{Arr}</div>
+                <div className="p-4 bg-asideGrey rounded-md">{Arr}</div>
             </div>
         </CheckLayout>
     );
