@@ -1,40 +1,40 @@
 import Advertisement from "@/Components/Advertisement";
 import CheckLayout from "../../Layouts/CheckLayout";
 import { useState } from "react";
+import SearchBar from "@/Components/SearchBar";
 
-const index = [5, 10, 15];
 export default function ListOffre({ auth, data }) {
     const [NbAd, SetNbAd] = useState(5);
-
-    let Arr = [];
-    for (let i = 0; i < NbAd; i++) {
-        Arr.push(
-            <Advertisement
-                titre={data[i][0]}
-                description={data[i][1]}
-                id={data[i][2]}
-            />
-        );
-    }
+    const [search, setSearch] = useState('');
+    const index = [5, 10, 15]; 
+    const filteredData = data.filter((item) =>
+        item[0].toLowerCase().includes(search.toLowerCase())
+    );
+    const Arr = filteredData.slice(0, NbAd).map((item, index) => (
+        <Advertisement
+            titre={item[0]}
+            description={item[1]}
+            id={item[2]}
+            key={index}
+        />
+    ));
 
     return (
         <CheckLayout auth={auth} title={"offres d'emploi"}>
             <div className="container mx-auto">
                 <div className="flex gap-5 mb-5">
-                    <div className="w-2/3 bg-white rounded-lg p-2  text-black">
-                        SERACH BAR
-                    </div>
+                    <SearchBar search={search} setSearch={setSearch} /> 
                     <select
-                        className="rounded-xl bg-background"
+                        className="rounded-xl bg-background my-2"
                         onChange={(e) => SetNbAd(e.target.value)}
                     >
-                        {index.map((index) => (
+                        {index.map((value) => (
                             <option
-                                key={index}
-                                value={index}
+                                key={value}
+                                value={value}
                                 className="bg-white text-black"
                             >
-                                {index}
+                                {value}
                             </option>
                         ))}
                     </select>
@@ -44,3 +44,4 @@ export default function ListOffre({ auth, data }) {
         </CheckLayout>
     );
 }
+
