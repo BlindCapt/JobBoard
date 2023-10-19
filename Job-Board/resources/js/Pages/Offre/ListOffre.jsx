@@ -23,7 +23,7 @@ export default function ListOffre({ auth, data }) {
 
     return (
         <CheckLayout auth={auth} title={"offres d'emploi"}>
-            <div className="container mx-auto p-8">
+            <div className="container mx-auto py-12 px-10">
                 <div className="flex gap-5 mb-5 pl-8 bg-asideGrey p-2 rounded-lg">
                     <SearchBar search={search} setSearch={setSearch} />
                     <select
