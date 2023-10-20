@@ -7,6 +7,7 @@ use Inertia\Inertia;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CrudController;
+use App\Http\Controllers\CompaniesController;
 use App\Models\Offer;
 use Illuminate\Http\Request;
 
@@ -82,3 +83,11 @@ Route::get('/offer', function (Request $request) {
 })->name('offre');
 
 require __DIR__ . '/auth.php';
+
+
+//Route ADMIN Companies
+
+Route::get("/ManageCompanies", [CompaniesController::class, 'read']);
+Route::post("/ManageCompanies", [CompaniesController::class, 'create'])->name('create.companie');
+Route::delete("/ManageCompanies", [CompaniesController::class, 'destroy'])->name('delete.companie');
+Route::patch("/ManageCompanies", [CompaniesController::class, 'update'])->name('update.companie');

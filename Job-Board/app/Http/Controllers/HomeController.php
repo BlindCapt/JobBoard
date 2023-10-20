@@ -9,6 +9,7 @@ use Inertia\Inertia;
 
 class HomeController extends Controller
 {
+    /*
     public function index()
     {
         $listId = [];
@@ -18,7 +19,7 @@ class HomeController extends Controller
         return Inertia::render('Offre/ListOffre', [
             'data' => $listId,
         ]);
-    }
+    }*/
 
     public function OfferPage()
     {
@@ -42,19 +43,5 @@ class HomeController extends Controller
         $post->save();
 
         return "Titre : " . $request['name'] . ",\n Description : " . $request['text'];
-    }
-    public function jobs()
-    {
-        return Inertia::render('Jobs');
-    }
-
-    public function create()
-    {
-        return Inertia::render('test/Create');
-    }
-
-    public function offer()
-    {
-        return Inertia::render('Offre/Offers');
     }
 }
