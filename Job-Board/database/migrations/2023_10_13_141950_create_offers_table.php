@@ -16,11 +16,12 @@ return new class extends Migration
             //ID
             $table->id();
             $table->unsignedBigInteger('company_id');
-            $table->foreign('company_id')->references('id')->on('offers'); //Foreign Key
+            $table->foreign('company_id')->references('id')->on('companies'); //Foreign Key
 
             //Data
             $table->string('title');
             $table->string('description');
+            $table->text('full_description');
             $table->timestamps();
         });
     }

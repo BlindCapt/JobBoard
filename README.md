@@ -1,15 +1,24 @@
 # JobBoard
 
-composer install enable artisan command
+---
 
+/// enable artisan command
+composer install
+
+/// create .env file
 create .env file using .env.exemple as template
 
-php artisan key:generate add unique key to .env file
+///add unique key to .env file
+php artisan key:generate
 
-npm install install node
-npm run dev lunch front
+///install node
+npm install
 
-php artisan serve lunch app
+/// lunch front
+npm run dev
 
-php artisan migrate create all table
-php artisan db:seed create seed element (admin user)
+/// lunch app
+php artisan serve
+
+///create all table + add seed element
+php artisan migrate --seed
