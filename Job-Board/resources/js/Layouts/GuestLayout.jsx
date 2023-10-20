@@ -1,4 +1,5 @@
 import ApplicationLogo from "@/Components/ApplicationLogo";
+import ButtonUp from "@/Components/ButtonUp";
 import { Link } from "@inertiajs/react";
 
 export default function Guest({ title, children }) {
@@ -43,6 +44,7 @@ export default function Guest({ title, children }) {
                 </header>
                 <body className="grid grid-cols-6">
                     <div className="col-span-5">{children}</div>
+                    <ButtonUp/>
                 </body>
             </div>
         </div>
