@@ -1,8 +1,8 @@
 import { useForm } from "@inertiajs/react";
 import React, { useState } from "react";
-import UpdateCompanie from "../Pages/Admin/Companies/UpdateCompanie";
+import UpdateUser from "../Pages/Admin/Users/UpdateUser";
 
-const CardCompanie = ({ data }) => {
+const CardUser = ({ data }) => {
     const {
         datas,
         setDatas,
@@ -17,22 +17,22 @@ const CardCompanie = ({ data }) => {
     const handleDeleteButton = (e) => {
         e.preventDefault();
 
-        destroy(route("delete.companie"));
+        destroy(route("delete.user"));
     };
 
     let [formVisibility, SetFormVisibility] = useState(false);
 
+    const form = <UpdateUser user={data}></UpdateUser>;
+
     return (
         <div className="container relative grid grid-cols-2 mx-auto bg-background rounded-lg p-4 mt-8">
             {formVisibility ? (
-                <div>
-                    <UpdateCompanie companie={data}></UpdateCompanie>
-                </div>
+                <div>{form}</div>
             ) : (
                 <div>
                     <div className="">ID : {data[0]}</div>
-                    <div className="">Nom de l'entreprise : {data[1]}</div>
-                    <div className="">Description : {data[2]}</div>
+                    <div className="">Nom : {data[1]}</div>
+                    <div className="">Email : {data[2]}</div>
                 </div>
             )}
 
@@ -55,4 +55,4 @@ const CardCompanie = ({ data }) => {
     );
 };
 
-export default CardCompanie;
+export default CardUser;

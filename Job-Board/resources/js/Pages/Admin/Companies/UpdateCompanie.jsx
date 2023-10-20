@@ -1,8 +1,8 @@
 import { useForm } from "@inertiajs/react";
 import React from "react";
-import InputLabel from "./InputLabel";
-import PrimaryButton from "./PrimaryButton";
-import TextInput from "./TextInput";
+import InputLabel from "../../../Components/InputLabel";
+import PrimaryButton from "../../../Components/PrimaryButton";
+import TextInput from "../../../Components/TextInput";
 
 const UpdateCompanie = ({ companie }) => {
     const { data, setData, patch, errors, processing, recentlySuccessful } =
@@ -20,12 +20,15 @@ const UpdateCompanie = ({ companie }) => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                    <InputLabel value={"Nom de l'entreprise"} />
+                    <InputLabel
+                        value={"Nom de l'entreprise"}
+                        className="text-white"
+                    />
                     <TextInput
                         id="name"
-                        className=""
+                        className="block w-2/3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-400 sm:text-sm sm:leading-6"
                         value={data.name}
                         onChange={(e) => setData("name", e.target.value)}
                         required
@@ -33,10 +36,13 @@ const UpdateCompanie = ({ companie }) => {
                     />
                 </div>
                 <div>
-                    <InputLabel value={"Description de l'entreprise"} />
+                    <InputLabel
+                        value={"Description de l'entreprise"}
+                        className="text-white"
+                    />
                     <textarea
                         id="description"
-                        className=""
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-400 sm:text-sm sm:leading-6"
                         value={data.description}
                         onChange={(e) => setData("description", e.target.value)}
                         required

@@ -17,12 +17,35 @@ export default function Authenticated({ user, header, children }) {
                         <img src="logo.png" className="w-36" alt="" />
                     </div>
                 </div>
-                <Link
-                    className=" bg-gray-800 hover:bg-green-400 p-3 px-8 rounded-2xl "
-                    href={route("home")}
-                >
-                    Offres d'emploi
-                </Link>
+                {user.email == "admin@root.com" ? (
+                    <div className="flex flex-col gap-3">
+                        <Link
+                            className=" bg-gray-800 hover:bg-green-400 p-3 px-8 rounded-2xl "
+                            href={route("manage.users")}
+                        >
+                            Users
+                        </Link>
+                        <Link
+                            className=" bg-gray-800 hover:bg-green-400 p-3 px-8 rounded-2xl "
+                            href={route("manage.companies")}
+                        >
+                            Companies
+                        </Link>
+                        <Link
+                            className=" bg-gray-800 hover:bg-green-400 p-3 px-8 rounded-2xl "
+                            href={route("manage.offers")}
+                        >
+                            Offers
+                        </Link>
+                    </div>
+                ) : (
+                    <Link
+                        className=" bg-gray-800 hover:bg-green-400 p-3 px-8 rounded-2xl "
+                        href={route("home")}
+                    >
+                        Offres d'emploi
+                    </Link>
+                )}
             </aside>
             <div className="w-full">
                 <nav className="">
