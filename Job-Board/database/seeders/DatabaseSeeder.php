@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
         //]);
         // DB::table('users')->delete();
 
+
         Companies::factory(10)->create();
 
         Offer::factory(15)->create();

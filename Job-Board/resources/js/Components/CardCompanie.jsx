@@ -22,12 +22,12 @@ const CardCompanie = ({ data }) => {
 
     let [formVisibility, SetFormVisibility] = useState(false);
 
-    const form = <UpdateCompanie companie={data}></UpdateCompanie>;
-
     return (
         <div className="container relative grid grid-cols-2 mx-auto bg-background rounded-lg p-4 mt-8">
             {formVisibility ? (
-                <div>{form}</div>
+                <div>
+                    <UpdateCompanie companie={data}></UpdateCompanie>
+                </div>
             ) : (
                 <div>
                     <div className="">ID : {data[0]}</div>

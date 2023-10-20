@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CrudController;
 use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\OffersController;
 use App\Models\Companies;
 use App\Models\Offer;
 use Illuminate\Http\Request;
@@ -102,3 +103,10 @@ Route::get("/ManageUsers", [UsersController::class, 'read'])->middleware(['auth'
 Route::post("/ManageUsers", [UsersController::class, 'create'])->name('create.user');
 Route::delete("/ManageUsers", [UsersController::class, 'destroy'])->name('delete.user');
 Route::patch("/ManageUsers", [UsersController::class, 'update'])->name('update.user');
+
+/***Offers***/
+
+Route::get("/ManageOffers", [OffersController::class, 'read'])->middleware(['auth'])->name('manage.offers');
+Route::post("/ManageOffers", [OffersController::class, 'create'])->name('create.offer');
+Route::delete("/ManageOffers", [OffersController::class, 'destroy'])->name('delete.offer');
+Route::patch("/ManageOffers", [OffersController::class, 'update'])->name('update.offer');
