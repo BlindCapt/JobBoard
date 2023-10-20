@@ -3,11 +3,13 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Companies;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-
+use App\Models\Offer;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,17 +18,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        DB::table('users')->delete();
         User::create([
             'email' => 'admin@root.com',
             'name' => 'admin',
             'password' => Hash::make('admin123'),
         ]);
+        User::factory(10)->create();
+
+        //User::factory()->create([
+        //    'name' => 'Test User',
+        //    'email' => 'test@example.com',
+        //]);
+        // DB::table('users')->delete();
+
+
+        Companies::factory(10)->create();
+
+        Offer::factory(15)->create();
     }
 }
