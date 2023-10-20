@@ -2,8 +2,9 @@ import CardCompanie from "@/Components/CardCompanie";
 import NewCompanie from "@/Components/NewCompanie";
 import PrimaryButton from "@/Components/PrimaryButton";
 import React, { useState } from "react";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
-const ManageCompanies = ({ data }) => {
+const ManageCompanies = ({ data, auth }) => {
     //// Affichage des companies
 
     let ListCard = [];
@@ -25,20 +26,22 @@ const ManageCompanies = ({ data }) => {
 
     ///////////
     return (
-        <div className="">
-            <div className="text-right m-2">
-                <div>
-                    <PrimaryButton
-                        className=""
-                        onClick={() => SetFormVisibility(!formVisibility)}
-                    >
-                        New Companie
-                    </PrimaryButton>
-                    <div className="">{form}</div>
+        <AuthenticatedLayout user={auth.user} header={"Manage Companies"}>
+            <div className="">
+                <div className="text-right m-2">
+                    <div>
+                        <PrimaryButton
+                            className=""
+                            onClick={() => SetFormVisibility(!formVisibility)}
+                        >
+                            New Companie
+                        </PrimaryButton>
+                        <div className="">{form}</div>
+                    </div>
                 </div>
+                <div>{ListCard}</div>
             </div>
-            <div>{ListCard}</div>
-        </div>
+        </AuthenticatedLayout>
     );
 };
 

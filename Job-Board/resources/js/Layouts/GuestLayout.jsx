@@ -43,6 +43,7 @@ export default function Guest({ title, children }) {
                 </header>
                 <body className="grid grid-cols-6">
                     <div className="col-span-5">{children}</div>
+                    <div className="vertical-align: text-bottom"> fleche</div>
                 </body>
             </div>
         </div>
