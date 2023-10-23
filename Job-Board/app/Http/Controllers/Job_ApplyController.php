@@ -48,6 +48,7 @@ class Job_ApplyController extends Controller
     {
         $apply = Job_Apply::find($request['id']);
 
+        $apply->id_offre = $request['id_offre'];
         $apply->name = $request['name'];
         $apply->adress = $request['adress'];
         $apply->message = $request['message'];
