@@ -37,13 +37,31 @@ const CardOffer = ({ data }) => {
                     <UpdateOffer offer={data}></UpdateOffer>
                 </div>
             ) : (
-                <div className=" col-span-3">
-                    <div className="">ID : {data[0]}</div>
-                    <div className="">Companie ID : {data[1]}</div>
-                    <div className="">Tite : {data[2]}</div>
-                    <div className="">Description : {data[3]}</div>
+                <div className=" col-span-3 space-y-2 font-semibold">
+                    <div className="flex">
+                        ID : <div className="pl-4 font-normal">{data[0]}</div>
+                    </div>
+                    <div className="flex ">
+                        Companie ID :
+                        <div className="pl-4 font-normal">{data[1]}</div>
+                    </div>
+                    <div className="flex ">
+                        Titre :
+                        <div className="pl-2 font-normal text-gray-200">
+                            {data[2]}
+                        </div>
+                    </div>
+                    <div className="flex ">
+                        Description:
+                        <div className="pl-2 font-normal text-gray-200">
+                            {data[3]}
+                        </div>
+                    </div>
                     <div className={`${hidden}`}>
-                        Full description : {data[4]}
+                        Full description :{" "}
+                        <div className="pt-2 font-normal text-gray-200">
+                            {data[4]}
+                        </div>
                     </div>
                 </div>
             )}

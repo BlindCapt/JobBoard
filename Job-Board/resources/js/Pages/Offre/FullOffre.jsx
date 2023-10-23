@@ -8,7 +8,7 @@ const FullOffre = (props) => {
 
     let form;
     if (formVisibility) {
-        form = <FormJobNotAuth></FormJobNotAuth>;
+        form = <FormJobNotAuth idOffre={props.id}></FormJobNotAuth>;
     } else {
         form = null;
     }
