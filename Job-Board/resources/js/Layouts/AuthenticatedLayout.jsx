@@ -37,6 +37,12 @@ export default function Authenticated({ user, header, children }) {
                         >
                             Offers
                         </Link>
+                        <Link
+                            className=" bg-gray-800 hover:bg-green-400 p-3 px-8 rounded-2xl "
+                            href={route("manage.apply")}
+                        >
+                            Applies
+                        </Link>
                     </div>
                 ) : (
                     <Link

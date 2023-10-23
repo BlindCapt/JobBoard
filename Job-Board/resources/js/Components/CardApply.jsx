@@ -1,8 +1,8 @@
 import { useForm } from "@inertiajs/react";
 import React, { useState } from "react";
-import UpdateOffer from "../Pages/Admin/Offers/UpdateOffer";
+import UpdateApply from "../Pages/Admin/Applies/UpdateApply";
 
-const CardOffer = ({ data }) => {
+const CardApply = ({ data }) => {
     const {
         datas,
         setDatas,
@@ -17,7 +17,7 @@ const CardOffer = ({ data }) => {
     const handleDeleteButton = (e) => {
         e.preventDefault();
 
-        destroy(route("delete.offer"));
+        destroy(route("delete.apply"));
     };
 
     let [formVisibility, SetFormVisibility] = useState(false);
@@ -34,31 +34,31 @@ const CardOffer = ({ data }) => {
         <div className="container relative grid grid-cols-4 mx-auto bg-background rounded-lg p-4 mt-8">
             {formVisibility ? (
                 <div className=" col-span-3">
-                    <UpdateOffer offer={data}></UpdateOffer>
+                    <UpdateApply apply={data}></UpdateApply>
                 </div>
             ) : (
                 <div className=" col-span-3 space-y-2 font-semibold">
                     <div className="flex">
                         ID : <div className="pl-4 font-normal">{data[0]}</div>
                     </div>
-                    <div className="flex ">
-                        Companie ID :
+                    <div className="flex">
+                        ID de l'offre:{" "}
                         <div className="pl-4 font-normal">{data[1]}</div>
                     </div>
                     <div className="flex ">
-                        Titre :
+                        Name:{" "}
                         <div className="pl-2 font-normal text-gray-200">
                             {data[2]}
                         </div>
                     </div>
                     <div className="flex ">
-                        Description:
+                        Adress:
                         <div className="pl-2 font-normal text-gray-200">
                             {data[3]}
                         </div>
                     </div>
                     <div className={`${hidden}`}>
-                        Full description :{" "}
+                        Message :{" "}
                         <div className="pt-2 font-normal text-gray-200">
                             {data[4]}
                         </div>
@@ -94,4 +94,4 @@ const CardOffer = ({ data }) => {
     );
 };
 
-export default CardOffer;
+export default CardApply;

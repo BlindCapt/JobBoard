@@ -8,6 +8,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CrudController;
 use App\Http\Controllers\CompaniesController;
+use App\Http\Controllers\Job_ApplyController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\OffersController;
 use App\Models\Companies;
@@ -73,7 +74,7 @@ Route::get('/setOffer', [HomeController::class, 'OfferPage']);
 Route::get('/offer', function (Request $request) {
     $id = $request['id'];
 
-    $post = \App\Models\Offer::findOrFail($id);
+    $post = Offer::findOrFail($id);
     return Inertia::render('Offre/FullOffre', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -110,3 +111,10 @@ Route::get("/ManageOffers", [OffersController::class, 'read'])->middleware(['aut
 Route::post("/ManageOffers", [OffersController::class, 'create'])->name('create.offer');
 Route::delete("/ManageOffers", [OffersController::class, 'destroy'])->name('delete.offer');
 Route::patch("/ManageOffers", [OffersController::class, 'update'])->name('update.offer');
+
+/***Apply***/
+
+Route::get("/ManageApply", [Job_ApplyController::class, 'read'])->middleware(['auth'])->name('manage.apply');
+Route::post("/ManageApply", [Job_ApplyController::class, 'create'])->name('create.apply');
+Route::delete("/ManageApply", [Job_ApplyController::class, 'destroy'])->name('delete.apply');
+Route::patch("/ManageApply", [Job_ApplyController::class, 'update'])->name('update.apply');

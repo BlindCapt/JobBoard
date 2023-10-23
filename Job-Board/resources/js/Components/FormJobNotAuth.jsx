@@ -1,25 +1,31 @@
 import { useForm, usePage } from "@inertiajs/react";
 import React from "react";
 
-const FormJobNotAuth = () => {
+const FormJobNotAuth = (props) => {
     const user = usePage().props.auth.user;
     let name, email;
     if (user) {
         name = user.name;
         email = user.email;
-    } else {
-        name = "";
-        email = "";
     }
 
-    const { data, setData, patch, errors, processing, recentlySuccessful } =
+    const { data, setData, post, errors, processing, recentlySuccessful } =
         useForm({
+            id_offre: props.idOffre,
             name: name,
             email: email,
+            adress: "",
+            message: "",
         });
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        post(route("create.apply"));
+    };
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className="space-y-12 pt-12">
                 <div className="border-b border-gray-900/10 border-t border-white pb-12 pt-8">
                     <h2 className="text-base font-semibold leading-7">
@@ -48,6 +54,7 @@ const FormJobNotAuth = () => {
                                         setData("name", e.target.value)
                                     }
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-400 sm:text-sm sm:leading-6"
+                                    required
                                 />
                             </div>
                         </div>
@@ -70,6 +77,7 @@ const FormJobNotAuth = () => {
                                     }
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-400 sm:text-sm sm:leading-6"
+                                    required
                                 />
                             </div>
                         </div>
@@ -88,6 +96,9 @@ const FormJobNotAuth = () => {
                                     id="street-address"
                                     autoComplete="street-address"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-400 sm:text-sm sm:leading-6"
+                                    onChange={(e) =>
+                                        setData("adress", e.target.value)
+                                    }
                                 />
                             </div>
                         </div>
@@ -143,6 +154,12 @@ const FormJobNotAuth = () => {
                                             rows={3}
                                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-400 sm:text-sm sm:leading-6"
                                             defaultValue={""}
+                                            onChange={(e) =>
+                                                setData(
+                                                    "message",
+                                                    e.target.value
+                                                )
+                                            }
                                         />
                                     </div>
                                     <p className="mt-3 text-sm leading-6 text-gray-400">
